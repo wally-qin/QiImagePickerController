@@ -27,6 +27,23 @@
 		189F285F23F6996900988ACE /* QiPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189F285E23F6996900988ACE /* QiPhotoViewController.swift */; };
 		189F286123F6BAC700988ACE /* QiPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189F286023F6BAC700988ACE /* QiPhotoCell.swift */; };
 		18BE3EB023FD1F66000B7F7F /* icon_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BE3EAF23FD1F66000B7F7F /* icon_video@2x.png */; };
+		B60EE21D24231A4500DA7FDE /* QiAssetPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE21C24231A4500DA7FDE /* QiAssetPreview.swift */; };
+		B60EE21F24231D0100DA7FDE /* QiPhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE21E24231D0100DA7FDE /* QiPhotoPreview.swift */; };
+		B60EE2302423413400DA7FDE /* FrameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE2242423413400DA7FDE /* FrameStore.swift */; };
+		B60EE2312423413400DA7FDE /* GIFAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE2252423413400DA7FDE /* GIFAnimatable.swift */; };
+		B60EE2322423413400DA7FDE /* AnimatedFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE2262423413400DA7FDE /* AnimatedFrame.swift */; };
+		B60EE2332423413400DA7FDE /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE2272423413400DA7FDE /* Animator.swift */; };
+		B60EE2342423413400DA7FDE /* GIFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE2282423413400DA7FDE /* GIFImageView.swift */; };
+		B60EE2352423413400DA7FDE /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE22A2423413400DA7FDE /* Array.swift */; };
+		B60EE2362423413400DA7FDE /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE22B2423413400DA7FDE /* CGSize.swift */; };
+		B60EE2372423413400DA7FDE /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE22C2423413400DA7FDE /* UIImage.swift */; };
+		B60EE2382423413400DA7FDE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE22D2423413400DA7FDE /* UIImageView.swift */; };
+		B60EE2392423413400DA7FDE /* ImageSourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE22F2423413400DA7FDE /* ImageSourceHelpers.swift */; };
+		B60EE23B24234F1900DA7FDE /* QiVideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE23A24234F1900DA7FDE /* QiVideoPreview.swift */; };
+		B60EE23D2423587C00DA7FDE /* QiLivePhotoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE23C2423587C00DA7FDE /* QiLivePhotoPreview.swift */; };
+		B60EE23F24235E9D00DA7FDE /* QiAssetPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE23E24235E9D00DA7FDE /* QiAssetPreviewCell.swift */; };
+		B60EE24324235FE500DA7FDE /* QiAssetPagePreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE24224235FE500DA7FDE /* QiAssetPagePreviewer.swift */; };
+		B60EE24524236E8000DA7FDE /* icon_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B60EE24424236E8000DA7FDE /* icon_play@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +92,24 @@
 		189F285E23F6996900988ACE /* QiPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiPhotoViewController.swift; sourceTree = "<group>"; };
 		189F286023F6BAC700988ACE /* QiPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiPhotoCell.swift; sourceTree = "<group>"; };
 		18BE3EAF23FD1F66000B7F7F /* icon_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_video@2x.png"; sourceTree = "<group>"; };
+		B60EE21C24231A4500DA7FDE /* QiAssetPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPreview.swift; sourceTree = "<group>"; };
+		B60EE21E24231D0100DA7FDE /* QiPhotoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiPhotoPreview.swift; sourceTree = "<group>"; };
+		B60EE2212423413400DA7FDE /* Gifu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gifu.h; sourceTree = "<group>"; };
+		B60EE2242423413400DA7FDE /* FrameStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameStore.swift; sourceTree = "<group>"; };
+		B60EE2252423413400DA7FDE /* GIFAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFAnimatable.swift; sourceTree = "<group>"; };
+		B60EE2262423413400DA7FDE /* AnimatedFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedFrame.swift; sourceTree = "<group>"; };
+		B60EE2272423413400DA7FDE /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		B60EE2282423413400DA7FDE /* GIFImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFImageView.swift; sourceTree = "<group>"; };
+		B60EE22A2423413400DA7FDE /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		B60EE22B2423413400DA7FDE /* CGSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		B60EE22C2423413400DA7FDE /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		B60EE22D2423413400DA7FDE /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		B60EE22F2423413400DA7FDE /* ImageSourceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSourceHelpers.swift; sourceTree = "<group>"; };
+		B60EE23A24234F1900DA7FDE /* QiVideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiVideoPreview.swift; sourceTree = "<group>"; };
+		B60EE23C2423587C00DA7FDE /* QiLivePhotoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiLivePhotoPreview.swift; sourceTree = "<group>"; };
+		B60EE23E24235E9D00DA7FDE /* QiAssetPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPreviewCell.swift; sourceTree = "<group>"; };
+		B60EE24224235FE500DA7FDE /* QiAssetPagePreviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPagePreviewer.swift; sourceTree = "<group>"; };
+		B60EE24424236E8000DA7FDE /* icon_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +201,7 @@
 		189F285023F28C3000988ACE /* PickerController */ = {
 			isa = PBXGroup;
 			children = (
+				B60EE2202423413400DA7FDE /* Sources */,
 				116B94F324222526002D2D72 /* Extension */,
 				18BE3EAE23FD1EA8000B7F7F /* Resource */,
 				189F285C23F64E2E00988ACE /* QiImagePikerManager.swift */,
@@ -185,6 +221,12 @@
 				189F286023F6BAC700988ACE /* QiPhotoCell.swift */,
 				1895979523FD31EB0019178B /* QiAlbumView.swift */,
 				1895979723FD32750019178B /* QiAlbumCell.swift */,
+				B60EE24224235FE500DA7FDE /* QiAssetPagePreviewer.swift */,
+				B60EE23E24235E9D00DA7FDE /* QiAssetPreviewCell.swift */,
+				B60EE21C24231A4500DA7FDE /* QiAssetPreview.swift */,
+				B60EE21E24231D0100DA7FDE /* QiPhotoPreview.swift */,
+				B60EE23A24234F1900DA7FDE /* QiVideoPreview.swift */,
+				B60EE23C2423587C00DA7FDE /* QiLivePhotoPreview.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,8 +244,59 @@
 			isa = PBXGroup;
 			children = (
 				18BE3EAF23FD1F66000B7F7F /* icon_video@2x.png */,
+				B60EE24424236E8000DA7FDE /* icon_play@2x.png */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		B60EE2202423413400DA7FDE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B60EE2212423413400DA7FDE /* Gifu.h */,
+				B60EE2222423413400DA7FDE /* Gifu */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B60EE2222423413400DA7FDE /* Gifu */ = {
+			isa = PBXGroup;
+			children = (
+				B60EE2232423413400DA7FDE /* Classes */,
+				B60EE2292423413400DA7FDE /* Extensions */,
+				B60EE22E2423413400DA7FDE /* Helpers */,
+			);
+			path = Gifu;
+			sourceTree = "<group>";
+		};
+		B60EE2232423413400DA7FDE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B60EE2242423413400DA7FDE /* FrameStore.swift */,
+				B60EE2252423413400DA7FDE /* GIFAnimatable.swift */,
+				B60EE2262423413400DA7FDE /* AnimatedFrame.swift */,
+				B60EE2272423413400DA7FDE /* Animator.swift */,
+				B60EE2282423413400DA7FDE /* GIFImageView.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B60EE2292423413400DA7FDE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B60EE22A2423413400DA7FDE /* Array.swift */,
+				B60EE22B2423413400DA7FDE /* CGSize.swift */,
+				B60EE22C2423413400DA7FDE /* UIImage.swift */,
+				B60EE22D2423413400DA7FDE /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B60EE22E2423413400DA7FDE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B60EE22F2423413400DA7FDE /* ImageSourceHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +407,7 @@
 				188E2F7523F28AEF0071291E /* LaunchScreen.storyboard in Resources */,
 				18BE3EB023FD1F66000B7F7F /* icon_video@2x.png in Resources */,
 				188E2F7223F28AEF0071291E /* Assets.xcassets in Resources */,
+				B60EE24524236E8000DA7FDE /* icon_play@2x.png in Resources */,
 				188E2F7023F28AEE0071291E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,19 +433,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60EE2332423413400DA7FDE /* Animator.swift in Sources */,
 				188E2F6D23F28AEE0071291E /* ViewController.swift in Sources */,
 				116B94F524222544002D2D72 /* UIView+Extension.swift in Sources */,
+				B60EE24324235FE500DA7FDE /* QiAssetPagePreviewer.swift in Sources */,
 				189F285B23F54A6200988ACE /* QiAssetModel.swift in Sources */,
 				188E2F6923F28AEE0071291E /* AppDelegate.swift in Sources */,
 				189F285523F2908D00988ACE /* QiAlbumViewController.swift in Sources */,
+				B60EE2382423413400DA7FDE /* UIImageView.swift in Sources */,
+				B60EE23B24234F1900DA7FDE /* QiVideoPreview.swift in Sources */,
+				B60EE21F24231D0100DA7FDE /* QiPhotoPreview.swift in Sources */,
 				189F285923F5465C00988ACE /* QiAlbumModel.swift in Sources */,
 				1895979623FD31EB0019178B /* QiAlbumView.swift in Sources */,
+				B60EE2372423413400DA7FDE /* UIImage.swift in Sources */,
 				188E2F6B23F28AEE0071291E /* SceneDelegate.swift in Sources */,
+				B60EE23D2423587C00DA7FDE /* QiLivePhotoPreview.swift in Sources */,
 				1895979823FD32750019178B /* QiAlbumCell.swift in Sources */,
+				B60EE21D24231A4500DA7FDE /* QiAssetPreview.swift in Sources */,
+				B60EE23F24235E9D00DA7FDE /* QiAssetPreviewCell.swift in Sources */,
+				B60EE2342423413400DA7FDE /* GIFImageView.swift in Sources */,
 				189F286123F6BAC700988ACE /* QiPhotoCell.swift in Sources */,
+				B60EE2302423413400DA7FDE /* FrameStore.swift in Sources */,
 				189F285F23F6996900988ACE /* QiPhotoViewController.swift in Sources */,
 				116B94F924223650002D2D72 /* QiAssetPreviewController.swift in Sources */,
+				B60EE2362423413400DA7FDE /* CGSize.swift in Sources */,
+				B60EE2392423413400DA7FDE /* ImageSourceHelpers.swift in Sources */,
+				B60EE2352423413400DA7FDE /* Array.swift in Sources */,
+				B60EE2322423413400DA7FDE /* AnimatedFrame.swift in Sources */,
 				189F285323F28F1500988ACE /* QiImagePickerController.swift in Sources */,
+				B60EE2312423413400DA7FDE /* GIFAnimatable.swift in Sources */,
 				189F285D23F64E2E00988ACE /* QiImagePikerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

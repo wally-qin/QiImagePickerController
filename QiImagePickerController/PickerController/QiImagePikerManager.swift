@@ -189,7 +189,72 @@ class QiImagePikerManager: NSObject {
         //还可以有进度
         return imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: options, resultHandler: resultHandler)
     }
+    //MARK:请求预览的图片
+    @discardableResult
+    func requestPreviewImage(for asset: PHAsset, resultHandler: @escaping (UIImage?, [AnyHashable : Any]?) -> Void) -> PHImageRequestID {
+        //预览时默认取屏幕的宽为基准。
+        let screenWidth = UIScreen.main.bounds.width
+        let pixelWidth = screenWidth * UIScreen.main.scale
+        let assetRadio : CGFloat = CGFloat(asset.pixelWidth) / CGFloat(asset.pixelHeight)
+        let pixelHeight = pixelWidth / assetRadio
+//        if assetRadio > 2.0 {//图片超宽
+//           pixelWidth = pixelWidth * assetRadio
+//        }
+//        if assetRadio < 0.25 {//图片超长
+//            pixelWidth = pixelWidth * 0.5
+//        }
+//
+        let options = PHImageRequestOptions.init()
+        options.resizeMode = .fast
+        //还可以有进度
+        options.progressHandler = { (progress,error,stop,info) in
+            
+        }
+        let targetSize = CGSize.init(width: pixelWidth, height: pixelHeight)
+       
+        return imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: options, resultHandler: resultHandler)
+    }
     
+    //MARK:请求原始的数据
+    @discardableResult
+    func requestImageData(for asset: PHAsset, resultHandler: @escaping (Data?, String?, CGImagePropertyOrientation, [AnyHashable : Any]?) -> Void) -> PHImageRequestID {
+        let options = PHImageRequestOptions.init()
+        options.resizeMode = .fast
+        //还可以有进度
+        options.progressHandler = { (progress,error,stop,info) in
+            
+        }
+        return imageManager.requestImageDataAndOrientation(for: asset, options: options, resultHandler: resultHandler)
+    }
+    //MARK:请求视频数据
+    @discardableResult
+    func requestPlayerItem(for asset: PHAsset, resultHandler: @escaping (AVPlayerItem?, [AnyHashable : Any]?) -> Void) -> PHImageRequestID {
+        let options = PHVideoRequestOptions.init()
+        options.isNetworkAccessAllowed = true
+        //还可以有进度
+        options.progressHandler = { (progress,error,stop,info) in
+            
+        }
+        return imageManager.requestPlayerItem(forVideo: asset, options: options, resultHandler: resultHandler)
+    }
+    //MARK:请求动图数据
+    @discardableResult
+    func requestPreviewLiveImage(for asset: PHAsset, resultHandler: @escaping (PHLivePhoto?, [AnyHashable : Any]?) -> Void) -> PHImageRequestID {
+        //预览时默认取屏幕的宽为基准。
+        let screenWidth = UIScreen.main.bounds.width
+        let pixelWidth = screenWidth * UIScreen.main.scale
+        let assetRadio : CGFloat = CGFloat(asset.pixelWidth) / CGFloat(asset.pixelHeight)
+        let pixelHeight = pixelWidth / assetRadio
+        let options = PHLivePhotoRequestOptions.init()
+        options.isNetworkAccessAllowed = true
+        //还可以有进度
+        options.progressHandler = { (progress,error,stop,info) in
+            
+        }
+        let targetSize = CGSize.init(width: pixelWidth, height: pixelHeight)
+        
+        return imageManager.requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: options, resultHandler: resultHandler)
+    }
     func convertPhotoAssetMediaTypeToQiAssetMediaType(asset:PHAsset) -> QiAssetMediaType {
         var assetType : QiAssetMediaType = .photo
         if asset.mediaType == .audio {

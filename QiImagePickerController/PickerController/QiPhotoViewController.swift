@@ -155,5 +155,13 @@ extension QiPhotoViewController : UICollectionViewDataSource,UICollectionViewDel
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let preview = QiAssetPreviewController()
+        preview.currentIndex = indexPath.item
+        preview.assets = currentAlbum?.assetArray
+        navigationController?.pushViewController(preview, animated: true)
+    }
+    
     
 }
