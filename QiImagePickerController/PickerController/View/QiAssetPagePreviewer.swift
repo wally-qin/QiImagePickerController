@@ -69,4 +69,11 @@ extension QiAssetPagePreviewer : UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         NotificationCenter.default.post(name: Notification.Name.init(QiVideoPreview.QiScrollHorizalNotificationKey), object: nil)
     }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if decelerate {
+            NotificationCenter.default.post(name: Notification.Name.init(QiPhotoPreview.QiScrollHorizalEndNotificationKey), object: nil)
+             NotificationCenter.default.post(name: Notification.Name.init(QiLivePhotoPreview.QiScrollHorizalEndNotificationKey), object: nil)
+        }
+    }
+    
 }

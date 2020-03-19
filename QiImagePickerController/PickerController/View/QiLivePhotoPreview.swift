@@ -9,6 +9,7 @@
 import UIKit
 import PhotosUI
 class QiLivePhotoPreview: UIScrollView {
+    static var QiScrollHorizalEndNotificationKey : String = "com.qishare.QiLivePhotoPreview"
     private var livePhotoView : PHLivePhotoView!
     private var singleGesture : UITapGestureRecognizer!
     private var doubleGesture : UITapGestureRecognizer!
@@ -32,6 +33,9 @@ class QiLivePhotoPreview: UIScrollView {
         decelerationRate = .fast
         minimumZoomScale = 1.0
         maximumZoomScale = 3.0
+        scrollsToTop = false
+        delaysContentTouches = false
+        alwaysBounceHorizontal = true
         delegate = self
         
         livePhotoView.frame = bounds
@@ -45,8 +49,21 @@ class QiLivePhotoPreview: UIScrollView {
         addGestureRecognizer(singleGesture)
         
         doubleGesture = UITapGestureRecognizer.init(target: self, action: #selector(doubleTapHandler(_:)))
+        doubleGesture.numberOfTapsRequired = 2
         addGestureRecognizer(doubleGesture)
-      
+        //注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveNotification), name: NSNotification.Name(rawValue: QiLivePhotoPreview.QiScrollHorizalEndNotificationKey), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func receiveNotification() {
+        guard zoomScale != minimumZoomScale else {
+            return
+        }
+        self.setZoomScale(minimumZoomScale, animated: false)
         
     }
     
