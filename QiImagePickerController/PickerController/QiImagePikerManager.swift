@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+
 class QiImagePikerManager: NSObject {
     
     static let manager = QiImagePikerManager()
@@ -273,3 +274,54 @@ class QiImagePikerManager: NSObject {
         return assetType
     }
 }
+
+class QiImagePickerOperation {
+    
+    static let `default` = QiImagePickerOperation()
+    //通知名称
+    static let PickerAssetsOrderNumberHasChanged = "com.qishare.QiImagePickerOperation"
+    //选中的相册资源ID
+    var selectedAssetIds : [String] = [String]()
+    //选中的相册资源
+    var selectedAssets : [PHAsset] = [PHAsset]()
+    //最大的选中数
+    var maxCount : Int = 9
+    //是否可以选择
+    var shouldBePick : Bool {
+        selectedAssetIds.count < maxCount
+    }
+    //选择
+    func tryAssetPick(asset : PHAsset) -> Bool {
+        if selectedAssetIds.count < maxCount {
+            if let _ = selectedAssetIds.first(where: {$0 == asset.localIdentifier}){
+                return false//已经选择了
+            } else {
+                selectedAssetIds.append(asset.localIdentifier)
+                selectedAssets.append(asset)
+                return true
+            }
+        } else {
+            return false
+        }
+    }
+    //取消选择
+    func tryCancelAssetPick(asset : PHAsset) -> Bool {
+        if let index = selectedAssetIds.firstIndex(where: {$0 == asset.localIdentifier}){
+            selectedAssets.remove(at: index)
+            selectedAssetIds.remove(at: index)
+            return true
+        } else {
+            return false//没有被选中过
+        }
+    }
+    //获取选择顺序标签
+    func pickerOrderNum(asset : PHAsset) -> Int {
+        if let index = selectedAssetIds.firstIndex(where: {$0 == asset.localIdentifier}){
+            return index + 1//已经选择了
+        } else {
+            return -1 //没有标签
+        }
+    }
+    
+}
+

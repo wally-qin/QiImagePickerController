@@ -148,7 +148,25 @@ extension QiPhotoViewController : UICollectionViewDataSource,UICollectionViewDel
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(QiPhotoCell.self), for: indexPath) as? QiPhotoCell else {
             fatalError("cell获取失败")
         }
-        cell.imageView.backgroundColor = .green
+        //如何统计选中与不选中
+        cell.coverButtonHandler = {[weak cell] (shouldSelected) in
+            guard let wCell = cell,let asset = self.currentAlbum?.assetArray[indexPath.item].asset else { return  }
+            if shouldSelected {
+                if QiImagePickerOperation.default.tryAssetPick(asset: asset) {
+                    wCell.coverType = .selected(QiImagePickerOperation.default.pickerOrderNum(asset: asset))
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: QiImagePickerOperation.PickerAssetsOrderNumberHasChanged), object: nil)
+                } else {
+                    print("选择资源异常")
+                }
+            } else {
+                if QiImagePickerOperation.default.tryCancelAssetPick(asset: asset) {
+                    wCell.coverType = .default
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: QiImagePickerOperation.PickerAssetsOrderNumberHasChanged), object: nil)
+                } else {
+                    print("选择资源异常")
+                }
+            }
+        }
         if let assetModel = currentAlbum?.assetArray[indexPath.item] {
             cell.assetModel = assetModel
         }
