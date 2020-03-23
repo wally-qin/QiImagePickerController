@@ -18,6 +18,11 @@ class QiPhotoViewController: UIViewController {
     private var titleButton : UIButton!
     private var collectionView : UICollectionView!
     private var flowLayout : UICollectionViewFlowLayout!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

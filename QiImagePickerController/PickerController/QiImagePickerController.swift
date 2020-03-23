@@ -7,23 +7,25 @@
 //
 
 import UIKit
-
+var KStatusBarHeight : CGFloat {
+    var statusBarHeight : CGFloat
+    
+    if #available (iOS 13,*) {
+        if let statusBarManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager {
+            statusBarHeight = statusBarManager.statusBarFrame.height
+        } else {
+            statusBarHeight = 20
+        }
+    } else {
+        statusBarHeight = UIApplication.shared.statusBarFrame.height
+    }
+    return statusBarHeight
+}
 class QiImagePickerController: UINavigationController {
     
     private lazy var tipLabel : UILabel = {
         
-        var statusBarHeight : CGFloat
-        
-        if #available (iOS 13,*) {
-            if let statusBarManager = self.view.window?.windowScene?.statusBarManager {
-                statusBarHeight = statusBarManager.statusBarFrame.height
-            } else {
-                statusBarHeight = 20
-            }
-        } else {
-            statusBarHeight = UIApplication.shared.statusBarFrame.height
-        }
-        let label = UILabel.init(frame: CGRect.init(x: 20, y: statusBarHeight + self.navigationBar.frame.height
+        let label = UILabel.init(frame: CGRect.init(x: 20, y: KStatusBarHeight + self.navigationBar.frame.height
             + 20, width: self.view.bounds.width - 40, height: 100))
         label.textAlignment = .left
         label.numberOfLines = 0

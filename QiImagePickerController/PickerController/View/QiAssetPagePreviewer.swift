@@ -13,6 +13,7 @@ class QiAssetPagePreviewer: UIView {
     private var dataSource : [QiAssetModel]
     private var currentIndex : Int
     private var collectionView : UICollectionView!
+    var scrolledCompletion : ((_ : Int)->Void)?
     init(frame: CGRect,dataSource : [QiAssetModel],atIndex:Int) {
         self.dataSource = dataSource
         self.currentIndex = atIndex
@@ -28,7 +29,7 @@ class QiAssetPagePreviewer: UIView {
     private func setupCollectionViews(){
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize.init(width: bounds.width, height: bounds.height - 64.0)
+        layout.itemSize = CGSize.init(width: bounds.width, height: bounds.height)
         layout.minimumLineSpacing = 0.0
         layout.minimumInteritemSpacing = 0.0
         collectionView = UICollectionView.init(frame: bounds, collectionViewLayout: layout)
@@ -38,6 +39,7 @@ class QiAssetPagePreviewer: UIView {
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.register(QiAssetPreviewCell.self, forCellWithReuseIdentifier: NSStringFromClass(QiAssetPreviewCell.self))
+        collectionView.contentInsetAdjustmentBehavior = .never
         addSubview(collectionView)
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else {return}
@@ -72,8 +74,14 @@ extension QiAssetPagePreviewer : UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate {
             NotificationCenter.default.post(name: Notification.Name.init(QiPhotoPreview.QiScrollHorizalEndNotificationKey), object: nil)
-             NotificationCenter.default.post(name: Notification.Name.init(QiLivePhotoPreview.QiScrollHorizalEndNotificationKey), object: nil)
+            NotificationCenter.default.post(name: Notification.Name.init(QiLivePhotoPreview.QiScrollHorizalEndNotificationKey), object: nil)
         }
+        
     }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = scrollView.contentOffset.x / scrollView.bounds.width
+        self.scrolledCompletion?(Int(index))
+    }
+    
     
 }
