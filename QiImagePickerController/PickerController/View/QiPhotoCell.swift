@@ -219,6 +219,7 @@ class QiCoverView: UIView {
             label.layer.borderWidth = 1.5
             label.layer.cornerRadius = 13.0
             label.layer.masksToBounds = true
+            label.backgroundColor = UIColor.black.withAlphaComponent(0.3)
             self.backgroundColor = UIColor.white.withAlphaComponent(0.6)
             
         case let .selected(x):
