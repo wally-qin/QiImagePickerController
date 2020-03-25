@@ -180,6 +180,11 @@ extension QiPhotoViewController : UICollectionViewDataSource,UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        guard let asset = self.currentAlbum?.assetArray[indexPath.item].asset else { return  }
+        let num = QiImagePickerOperation.default.pickerOrderNum(asset: asset)
+        if num == -1,!QiImagePickerOperation.default.shouldBePick {
+           return
+        } 
         let preview = QiAssetPreviewController()
         preview.currentIndex = indexPath.item
         preview.assets = currentAlbum?.assetArray
