@@ -44,6 +44,7 @@ class QiAssetPreviewController: UIViewController {
         previewer.scrolledCompletion = {[weak self] (index) in
             guard let `self` = self else { return }
             self.topView.assetModel = self.assets?[index]
+            self.changeBottomViewStyle(index: index)
         }
         previewer.singleTapHandler = { [weak self] in
             guard let `self` = self else {return}
@@ -65,7 +66,21 @@ class QiAssetPreviewController: UIViewController {
         let y = view.qi_height - ((navigationController?.toolbar.qi_height ?? 49.0) + iPhoneXSeriesBottomInset)
         bottomView = QiAssetPreviewBottomView.init(frame: .init(x: 0, y: y, width: view.qi_width, height: (navigationController?.toolbar.qi_height ?? 49.0) + iPhoneXSeriesBottomInset))
         view.addSubview(bottomView)
+        changeBottomViewStyle(index: index)
         
+    }
+    
+    func changeBottomViewStyle(index:Int) {
+        //判断初始值，决定底部视图的显示
+        if let model = self.assets?[index] {
+            if case .photo = model.assetType {
+                self.bottomView.isPhotoAsset = true
+            } else if case .livePhoto = model.assetType {
+                self.bottomView.isPhotoAsset = true
+            } else {
+                self.bottomView.isPhotoAsset = false
+            }
+        }
     }
     
     /*

@@ -13,6 +13,13 @@ class QiAssetPreviewBottomView: UIView {
     private var editButton : UIButton!
     private var originButton : UIButton!
     private var sendButton : UIButton!
+    //根据不同的资源类型，显示相应的界面风格
+    var isPhotoAsset : Bool = true {
+        didSet {
+            editButton.isHidden = !isPhotoAsset
+            originButton.isHidden = !isPhotoAsset
+        }
+    }
     var editButtonHandler : (()->())?
     var originButtonHandler : (()->())?
     var sendButtonHandler : (()->())?
@@ -78,6 +85,7 @@ class QiAssetPreviewBottomView: UIView {
     }
 
     @objc func setOriginImageHandler(_ sender : UIButton) {
+        sender.isSelected = !sender.isSelected
         originButtonHandler?()
     }
     @objc func editButtonButtonHandler(_ sender : UIButton) {
