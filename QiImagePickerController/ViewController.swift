@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let buttton = UIButton.init(frame: .init(x: 0, y: 0, width: 100, height: 40))
         buttton.setTitle("选择图片", for: .normal)
         buttton.setTitleColor(.blue, for: .normal)

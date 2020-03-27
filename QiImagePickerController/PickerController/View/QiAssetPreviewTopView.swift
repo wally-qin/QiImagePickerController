@@ -1,5 +1,5 @@
 //
-//  QiAssetPickerTopView.swift
+//  QiAssetPreviewTopView.swift
 //  QiImagePickerController
 //
 //  Created by qinwanli on 2020/3/23.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QiAssetPickerTopView: UIView {
+class QiAssetPreviewTopView: UIView {
     
     private var label : UILabel!
     private var imageView : UIImageView!
@@ -43,7 +43,7 @@ class QiAssetPickerTopView: UIView {
         
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        self.backgroundColor = UIColor.qi_colorWithHexString("#434445").withAlphaComponent(0.8)
         
         backButton.setImage(UIImage.init(named: "icon_navi_back"), for: .normal)
         backButton.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -16, bottom: 0, right: 16)

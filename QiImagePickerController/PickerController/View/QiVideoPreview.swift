@@ -61,6 +61,8 @@ class QiVideoPreview: UIScrollView {
             sender.isHidden = false
             stopAndResetPlayer()
         }
+        //单点回调
+        NotificationCenter.default.post(name: Notification.Name.init("com.qishare.imagetap"), object: nil)
     }
     @objc func singleTapHandler(_: UITapGestureRecognizer) {
         playButton.isSelected = !playButton.isSelected
@@ -71,6 +73,7 @@ class QiVideoPreview: UIScrollView {
             playButton.isHidden = false
             stopAndResetPlayer()
         }
+        NotificationCenter.default.post(name: Notification.Name.init("com.qishare.imagetap"), object: nil)
     }
     
     func stopAndResetPlayer(){

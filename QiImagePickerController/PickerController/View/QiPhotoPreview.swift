@@ -72,7 +72,7 @@ class QiPhotoPreview: UIScrollView {
         
     }
     @objc func singleTapHandler(_: UITapGestureRecognizer) {
-        
+        NotificationCenter.default.post(name: Notification.Name.init("com.qishare.imagetap"), object: nil)
     }
     @objc func doubleTapHandler(_ sender : UITapGestureRecognizer) {
         let point = sender.location(in: self)
@@ -82,11 +82,7 @@ class QiPhotoPreview: UIScrollView {
             self.zoom(to: CGRect(x: point.x, y: point.y, width: 1, height: 1), animated: true)
         }
     }
-    @objc func pinchGestureHandler(_ sender : UIPinchGestureRecognizer){
-       
-        
-        
-    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

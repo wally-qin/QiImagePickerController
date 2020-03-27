@@ -8,6 +8,47 @@
 
 import UIKit
 
+var iPhoneXSeriesBottomInset : CGFloat {
+    //directionalLayoutMargins
+    if #available (iOS 13,*) {
+        if let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) {
+            return window.rootViewController?.view.layoutMargins.bottom ?? 0.0
+        } else {
+            return 0.0
+        }
+    } else {
+         return UIApplication.shared.keyWindow?.rootViewController?.view.layoutMargins.bottom ?? 0.0
+    }
+   
+}
+var KStatusBarHeight : CGFloat {
+    var statusBarHeight : CGFloat
+    
+    if #available (iOS 13,*) {
+        if let statusBarManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager {
+            statusBarHeight = statusBarManager.statusBarFrame.height
+        } else {
+            statusBarHeight = 20
+        }
+    } else {
+        statusBarHeight = UIApplication.shared.statusBarFrame.height
+    }
+    return statusBarHeight
+}
+
+extension UIImage {
+    static func qi_colorImage(_ color : UIColor)->UIImage {
+        let rect = CGRect.init(x: 0, y: 0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image ?? UIImage()
+    }
+}
+
 extension UIView {
 
     var qi_centerX : CGFloat {

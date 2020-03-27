@@ -12,7 +12,8 @@ class QiAssetPreviewController: UIViewController {
     //全封装
     
     private var previewer : QiAssetPagePreviewer!
-    private var topView : QiAssetPickerTopView!
+    private var topView : QiAssetPreviewTopView!
+    private var bottomView : QiAssetPreviewBottomView!
     var assets : [QiAssetModel]?
     var currentIndex : Int?
     
@@ -44,9 +45,16 @@ class QiAssetPreviewController: UIViewController {
             guard let `self` = self else { return }
             self.topView.assetModel = self.assets?[index]
         }
+        previewer.singleTapHandler = { [weak self] in
+            guard let `self` = self else {return}
+            UIView.animate(withDuration: 0.25) {
+                self.topView.isHidden = !self.topView.isHidden
+                self.bottomView.isHidden = !self.bottomView.isHidden
+            }
+        }
         view.addSubview(previewer)
         
-        topView = QiAssetPickerTopView.init(frame: .init(x: 0, y: 0, width: view.bounds.width, height: KStatusBarHeight + (navigationController?.navigationBar.frame.height ?? 44.0)))
+        topView = QiAssetPreviewTopView.init(frame: .init(x: 0, y: 0, width: view.bounds.width, height: KStatusBarHeight + (navigationController?.navigationBar.frame.height ?? 44.0)))
         topView.assetModel = assets[index]
         topView.navigationBack = { [weak self] in
             guard let `self` = self else { return }
@@ -54,6 +62,9 @@ class QiAssetPreviewController: UIViewController {
         }
         
         view.addSubview(topView)
+        let y = view.qi_height - ((navigationController?.toolbar.qi_height ?? 49.0) + iPhoneXSeriesBottomInset)
+        bottomView = QiAssetPreviewBottomView.init(frame: .init(x: 0, y: y, width: view.qi_width, height: (navigationController?.toolbar.qi_height ?? 49.0) + iPhoneXSeriesBottomInset))
+        view.addSubview(bottomView)
         
     }
     

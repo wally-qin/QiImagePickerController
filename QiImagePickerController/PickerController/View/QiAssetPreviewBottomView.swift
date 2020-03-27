@@ -1,18 +1,19 @@
 //
-//  QiAssetPickerBottomView.swift
+//  QiAssetPreviewBottomView.swift
 //  QiImagePickerController
 //
-//  Created by qinwanli on 2020/3/23.
+//  Created by qinwanli on 2020/3/27.
 //  Copyright © 2020 QiShare. All rights reserved.
 //
 
 import UIKit
 
-class QiAssetPickerBottomView: UIView {
-
-    private var previewButton : UIButton!
+class QiAssetPreviewBottomView: UIView {
+    
+    private var editButton : UIButton!
     private var originButton : UIButton!
     private var sendButton : UIButton!
+    
     var color_back : UIColor = UIColor.qi_colorWithHexString("#434445").withAlphaComponent(0.8)
     var color_disable : UIColor = UIColor.qi_colorWithHexString("#7B7C7D")
     var color_normal : UIColor = UIColor.white
@@ -24,21 +25,21 @@ class QiAssetPickerBottomView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = color_back
-        
+
         let effectView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .systemChromeMaterialDark))
         effectView.frame = bounds
         self.addSubview(effectView)
         
-        previewButton = UIButton.init(frame: .zero)
-        previewButton.setAttributedTitle(NSAttributedString.init(string: "预览", attributes: [NSAttributedString.Key.foregroundColor : color_normal,NSAttributedString.Key.font : font_main]), for: .normal)
-        previewButton.setAttributedTitle(NSAttributedString.init(string: "预览", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue,NSAttributedString.Key.font : font_main]), for: .disabled)
-        previewButton.addTarget(self, action: #selector(previewButtonHandler(_ :)), for: .touchUpInside)
-        previewButton.sizeToFit()
-        previewButton.qi_width += 26.0
-        previewButton.qi_height = 30.0
-        previewButton.qi_left = 0
-        previewButton.qi_top = 9.5
-        addSubview(previewButton)
+        editButton = UIButton.init(frame: .zero)
+        editButton.setAttributedTitle(NSAttributedString.init(string: "编辑", attributes: [NSAttributedString.Key.foregroundColor : color_normal,NSAttributedString.Key.font : font_main]), for: .normal)
+        editButton.setAttributedTitle(NSAttributedString.init(string: "编辑", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue,NSAttributedString.Key.font : font_main]), for: .disabled)
+        editButton.addTarget(self, action: #selector(editButtonButtonHandler(_ :)), for: .touchUpInside)
+        editButton.sizeToFit()
+        editButton.qi_width += 26.0
+        editButton.qi_height = 30.0
+        editButton.qi_left = 0
+        editButton.qi_top = 9.5
+        addSubview(editButton)
         
         //控制全局设置的
         originButton = UIButton.init(frame: .zero)
@@ -77,7 +78,7 @@ class QiAssetPickerBottomView: UIView {
     @objc func setOriginImageHandler(_ sender : UIButton) {
         sender.isSelected = !sender.isSelected
     }
-    @objc func previewButtonHandler(_ sender : UIButton) {
+    @objc func editButtonButtonHandler(_ sender : UIButton) {
         sendButton.isEnabled = !sendButton.isEnabled
     }
     required init?(coder: NSCoder) {

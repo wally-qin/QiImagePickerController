@@ -7,20 +7,7 @@
 //
 
 import UIKit
-var KStatusBarHeight : CGFloat {
-    var statusBarHeight : CGFloat
-    
-    if #available (iOS 13,*) {
-        if let statusBarManager = UIApplication.shared.windows.first?.windowScene?.statusBarManager {
-            statusBarHeight = statusBarManager.statusBarFrame.height
-        } else {
-            statusBarHeight = 20
-        }
-    } else {
-        statusBarHeight = UIApplication.shared.statusBarFrame.height
-    }
-    return statusBarHeight
-}
+
 class QiImagePickerController: UINavigationController {
     
     private lazy var tipLabel : UILabel = {
@@ -36,7 +23,7 @@ class QiImagePickerController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        view.backgroundColor = UIColor.black
         if !QiImagePikerManager.manager.photoAuthorizationStatusIsAuthorized(firstSystemRequest: { (isAuthorized) in
             if isAuthorized {
                 if let _ = self.tipLabel.superview {

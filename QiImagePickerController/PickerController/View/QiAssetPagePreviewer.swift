@@ -13,14 +13,23 @@ class QiAssetPagePreviewer: UIView {
     private var dataSource : [QiAssetModel]
     private var currentIndex : Int
     private var collectionView : UICollectionView!
+    var singleTapHandler : (()->Void)?
     var scrolledCompletion : ((_ : Int)->Void)?
     init(frame: CGRect,dataSource : [QiAssetModel],atIndex:Int) {
         self.dataSource = dataSource
         self.currentIndex = atIndex
         super.init(frame: frame)
         setupCollectionViews()
+        //注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(reciveSingleTapNotification(_:)), name: Notification.Name.init("com.qishare.imagetap"), object: nil)
+    }
+    @objc func reciveSingleTapNotification(_ notif : Notification) {
+        singleTapHandler?()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = bounds
@@ -63,6 +72,9 @@ extension QiAssetPagePreviewer : UICollectionViewDelegate,UICollectionViewDataSo
         }
         cell.assetModel = dataSource[indexPath.row]
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     

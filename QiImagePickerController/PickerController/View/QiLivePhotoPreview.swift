@@ -68,7 +68,7 @@ class QiLivePhotoPreview: UIScrollView {
     }
     
     @objc func singleTapHandler(_: UITapGestureRecognizer) {
-        
+       NotificationCenter.default.post(name: Notification.Name.init("com.qishare.imagetap"), object: nil)
     }
     
     @objc func doubleTapHandler(_ sender : UITapGestureRecognizer) {

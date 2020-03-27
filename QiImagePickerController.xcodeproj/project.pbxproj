@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		116B94F524222544002D2D72 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B94F424222544002D2D72 /* UIView+Extension.swift */; };
+		116B94F524222544002D2D72 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B94F424222544002D2D72 /* Extension.swift */; };
 		116B94F924223650002D2D72 /* QiAssetPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B94F824223650002D2D72 /* QiAssetPreviewController.swift */; };
 		188E2F6923F28AEE0071291E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E2F6823F28AEE0071291E /* AppDelegate.swift */; };
 		188E2F6B23F28AEE0071291E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E2F6A23F28AEE0071291E /* SceneDelegate.swift */; };
@@ -44,10 +44,15 @@
 		B60EE23F24235E9D00DA7FDE /* QiAssetPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE23E24235E9D00DA7FDE /* QiAssetPreviewCell.swift */; };
 		B60EE24324235FE500DA7FDE /* QiAssetPagePreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EE24224235FE500DA7FDE /* QiAssetPagePreviewer.swift */; };
 		B60EE24524236E8000DA7FDE /* icon_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B60EE24424236E8000DA7FDE /* icon_play@2x.png */; };
-		B62A4E402428B8520062CC44 /* QiAssetPickerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A4E3F2428B8520062CC44 /* QiAssetPickerTopView.swift */; };
+		B62A4E402428B8520062CC44 /* QiAssetPreviewTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A4E3F2428B8520062CC44 /* QiAssetPreviewTopView.swift */; };
 		B62A4E422428B86C0062CC44 /* QiAssetPickerBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A4E412428B86C0062CC44 /* QiAssetPickerBottomView.swift */; };
 		B62A4E442428B9620062CC44 /* icon_navi_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B62A4E432428B9620062CC44 /* icon_navi_back@2x.png */; };
 		B62A4E462428C2CC0062CC44 /* icon_navi_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B62A4E452428C2CC0062CC44 /* icon_navi_mark@2x.png */; };
+		B6534EC9242D9F3B0060D62E /* QiAssetPreviewBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6534EC8242D9F3B0060D62E /* QiAssetPreviewBottomView.swift */; };
+		B6534ED0242DA9120060D62E /* icon_bottom_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6534ECC242DA9120060D62E /* icon_bottom_select@3x.png */; };
+		B6534ED1242DA9120060D62E /* icon_bottom_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6534ECD242DA9120060D62E /* icon_bottom_select@2x.png */; };
+		B6534ED2242DA9120060D62E /* icon_bottom_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6534ECE242DA9120060D62E /* icon_bottom_unselected@2x.png */; };
+		B6534ED3242DA9120060D62E /* icon_bottom_unselected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6534ECF242DA9120060D62E /* icon_bottom_unselected@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		116B94F424222544002D2D72 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		116B94F424222544002D2D72 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		116B94F624222BCD002D2D72 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		116B94F724222BCD002D2D72 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		116B94F824223650002D2D72 /* QiAssetPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPreviewController.swift; sourceTree = "<group>"; };
@@ -114,10 +119,15 @@
 		B60EE23E24235E9D00DA7FDE /* QiAssetPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPreviewCell.swift; sourceTree = "<group>"; };
 		B60EE24224235FE500DA7FDE /* QiAssetPagePreviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPagePreviewer.swift; sourceTree = "<group>"; };
 		B60EE24424236E8000DA7FDE /* icon_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play@2x.png"; sourceTree = "<group>"; };
-		B62A4E3F2428B8520062CC44 /* QiAssetPickerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPickerTopView.swift; sourceTree = "<group>"; };
+		B62A4E3F2428B8520062CC44 /* QiAssetPreviewTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPreviewTopView.swift; sourceTree = "<group>"; };
 		B62A4E412428B86C0062CC44 /* QiAssetPickerBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPickerBottomView.swift; sourceTree = "<group>"; };
 		B62A4E432428B9620062CC44 /* icon_navi_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_navi_back@2x.png"; sourceTree = "<group>"; };
 		B62A4E452428C2CC0062CC44 /* icon_navi_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_navi_mark@2x.png"; sourceTree = "<group>"; };
+		B6534EC8242D9F3B0060D62E /* QiAssetPreviewBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiAssetPreviewBottomView.swift; sourceTree = "<group>"; };
+		B6534ECC242DA9120060D62E /* icon_bottom_select@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bottom_select@3x.png"; sourceTree = "<group>"; };
+		B6534ECD242DA9120060D62E /* icon_bottom_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bottom_select@2x.png"; sourceTree = "<group>"; };
+		B6534ECE242DA9120060D62E /* icon_bottom_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bottom_unselected@2x.png"; sourceTree = "<group>"; };
+		B6534ECF242DA9120060D62E /* icon_bottom_unselected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bottom_unselected@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +158,7 @@
 		116B94F324222526002D2D72 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				116B94F424222544002D2D72 /* UIView+Extension.swift */,
+				116B94F424222544002D2D72 /* Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -235,7 +245,8 @@
 				B60EE21E24231D0100DA7FDE /* QiPhotoPreview.swift */,
 				B60EE23A24234F1900DA7FDE /* QiVideoPreview.swift */,
 				B60EE23C2423587C00DA7FDE /* QiLivePhotoPreview.swift */,
-				B62A4E3F2428B8520062CC44 /* QiAssetPickerTopView.swift */,
+				B62A4E3F2428B8520062CC44 /* QiAssetPreviewTopView.swift */,
+				B6534EC8242D9F3B0060D62E /* QiAssetPreviewBottomView.swift */,
 				B62A4E412428B86C0062CC44 /* QiAssetPickerBottomView.swift */,
 			);
 			path = View;
@@ -253,6 +264,10 @@
 		18BE3EAE23FD1EA8000B7F7F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B6534ECD242DA9120060D62E /* icon_bottom_select@2x.png */,
+				B6534ECC242DA9120060D62E /* icon_bottom_select@3x.png */,
+				B6534ECE242DA9120060D62E /* icon_bottom_unselected@2x.png */,
+				B6534ECF242DA9120060D62E /* icon_bottom_unselected@3x.png */,
 				B62A4E452428C2CC0062CC44 /* icon_navi_mark@2x.png */,
 				18BE3EAF23FD1F66000B7F7F /* icon_video@2x.png */,
 				B60EE24424236E8000DA7FDE /* icon_play@2x.png */,
@@ -419,9 +434,13 @@
 				188E2F7523F28AEF0071291E /* LaunchScreen.storyboard in Resources */,
 				18BE3EB023FD1F66000B7F7F /* icon_video@2x.png in Resources */,
 				188E2F7223F28AEF0071291E /* Assets.xcassets in Resources */,
+				B6534ED1242DA9120060D62E /* icon_bottom_select@2x.png in Resources */,
+				B6534ED3242DA9120060D62E /* icon_bottom_unselected@3x.png in Resources */,
+				B6534ED0242DA9120060D62E /* icon_bottom_select@3x.png in Resources */,
 				B62A4E462428C2CC0062CC44 /* icon_navi_mark@2x.png in Resources */,
 				B60EE24524236E8000DA7FDE /* icon_play@2x.png in Resources */,
 				B62A4E442428B9620062CC44 /* icon_navi_back@2x.png in Resources */,
+				B6534ED2242DA9120060D62E /* icon_bottom_unselected@2x.png in Resources */,
 				188E2F7023F28AEE0071291E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,7 +469,7 @@
 				B62A4E422428B86C0062CC44 /* QiAssetPickerBottomView.swift in Sources */,
 				B60EE2332423413400DA7FDE /* Animator.swift in Sources */,
 				188E2F6D23F28AEE0071291E /* ViewController.swift in Sources */,
-				116B94F524222544002D2D72 /* UIView+Extension.swift in Sources */,
+				116B94F524222544002D2D72 /* Extension.swift in Sources */,
 				B60EE24324235FE500DA7FDE /* QiAssetPagePreviewer.swift in Sources */,
 				189F285B23F54A6200988ACE /* QiAssetModel.swift in Sources */,
 				188E2F6923F28AEE0071291E /* AppDelegate.swift in Sources */,
@@ -463,12 +482,13 @@
 				B60EE2372423413400DA7FDE /* UIImage.swift in Sources */,
 				188E2F6B23F28AEE0071291E /* SceneDelegate.swift in Sources */,
 				B60EE23D2423587C00DA7FDE /* QiLivePhotoPreview.swift in Sources */,
-				B62A4E402428B8520062CC44 /* QiAssetPickerTopView.swift in Sources */,
+				B62A4E402428B8520062CC44 /* QiAssetPreviewTopView.swift in Sources */,
 				1895979823FD32750019178B /* QiAlbumCell.swift in Sources */,
 				B60EE21D24231A4500DA7FDE /* QiAssetPreview.swift in Sources */,
 				B60EE23F24235E9D00DA7FDE /* QiAssetPreviewCell.swift in Sources */,
 				B60EE2342423413400DA7FDE /* GIFImageView.swift in Sources */,
 				189F286123F6BAC700988ACE /* QiPhotoCell.swift in Sources */,
+				B6534EC9242D9F3B0060D62E /* QiAssetPreviewBottomView.swift in Sources */,
 				B60EE2302423413400DA7FDE /* FrameStore.swift in Sources */,
 				189F285F23F6996900988ACE /* QiPhotoViewController.swift in Sources */,
 				116B94F924223650002D2D72 /* QiAssetPreviewController.swift in Sources */,

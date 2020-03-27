@@ -18,6 +18,8 @@ class QiPhotoViewController: UIViewController {
     private var titleButton : UIButton!
     private var collectionView : UICollectionView!
     private var flowLayout : UICollectionViewFlowLayout!
+    private var bottomView : QiAssetPickerBottomView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -55,15 +57,28 @@ class QiPhotoViewController: UIViewController {
     }
     
     private func setupNavigation() {
+        let color_nav_title = UIColor.qi_colorWithHexString("#D5D6D7")
+        let color_nav_titleViewBg = UIColor.qi_colorWithHexString("#494A4B")
+        //let color_nav_iconviewBg = UIColor.qi_colorWithHexString("#A6A7A8")
+        //由于导航栏存在模糊视图，且背景色为白色，故此处颜色为实际颜色323037 的平均值：19181b
+        var mainHexColorStr = "0x313233"
+        var mainHexColorValue : UInt = 0x323037
+        mainHexColorValue = mainHexColorValue/2
+        mainHexColorStr = String.init(format: "%.06lx", mainHexColorValue)
+        let color_nav_bg = UIColor.qi_colorWithHexString(mainHexColorStr)
+        
         //设置导航栏
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.barTintColor = color_nav_bg
         let cancel = UIBarButtonItem.init(title: "取消", style: .plain, target: self, action: #selector(cancelBarButtonItemClicked(_:)))
-        cancel.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .regular),NSAttributedString.Key.foregroundColor : UIColor.blue], for: .normal)
+        cancel.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .regular),NSAttributedString.Key.foregroundColor : color_nav_title], for: .normal)
         self.navigationItem.leftBarButtonItem = cancel
         
         let navigationView = UIView.init(frame: .init(x: 0, y: 0, width: 0, height: 30))
-        navigationView.backgroundColor = UIColor.orange
+        navigationView.backgroundColor = color_nav_titleViewBg
         titleButton = UIButton.init(frame: .zero)
         titleButton.setTitle(currentAlbum?.assetName ?? "照片", for: .normal)
+        titleButton.titleLabel?.textColor = color_nav_title
         titleButton.sizeToFit()
         var frame = navigationView.frame
         frame.size.width = titleButton.frame.width + 20
@@ -91,8 +106,9 @@ class QiPhotoViewController: UIViewController {
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = padding
         flowLayout.minimumInteritemSpacing = 0
-        collectionView = UICollectionView.init(frame: view.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .black
+        let height = view.bounds.height - (navigationController?.toolbar.qi_height ?? 49.0) - iPhoneXSeriesBottomInset
+        collectionView = UICollectionView.init(frame: .init(x: 0, y: 0, width: view.bounds.width , height: height), collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = UIColor.qi_colorWithHexString("0x313233")
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = true
@@ -100,6 +116,10 @@ class QiPhotoViewController: UIViewController {
         collectionView.register(QiPhotoCell.self, forCellWithReuseIdentifier: NSStringFromClass(QiPhotoCell.self))
         collectionView.contentInsetAdjustmentBehavior = .automatic
         view.addSubview(collectionView)
+        
+        bottomView =  QiAssetPickerBottomView.init(frame: .init(x: 0, y: collectionView.qi_bottom, width: view.qi_width, height: (navigationController?.toolbar.qi_height ?? 49.0) + iPhoneXSeriesBottomInset))
+        view.addSubview(bottomView)
+        
     }
     
     @objc func cancelBarButtonItemClicked(_:UIBarButtonItem) {
