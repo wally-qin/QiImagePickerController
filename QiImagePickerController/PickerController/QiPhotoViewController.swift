@@ -118,6 +118,25 @@ class QiPhotoViewController: UIViewController {
         view.addSubview(collectionView)
         
         bottomView =  QiAssetPickerBottomView.init(frame: .init(x: 0, y: collectionView.qi_bottom, width: view.qi_width, height: (navigationController?.toolbar.qi_height ?? 49.0) + iPhoneXSeriesBottomInset))
+        bottomView.sendButtonHandler = {
+            
+        }
+        bottomView.previewButtonHandler = { [weak self] in
+            guard let `self` = self else {return}
+            let preview = QiAssetPreviewController()
+            preview.currentIndex = 0
+            var assetArray : [QiAssetModel] = [QiAssetModel]()
+            QiImagePickerOperation.default.selectedAssets.forEach { (asset) in
+                let assetModel = QiAssetModel.init()
+                assetModel.asset = asset
+                //TODO:1.是否需要过滤视频或者过滤图片 提供外部只选择图片或者只选择视频的接口
+                assetModel.assetType = QiImagePikerManager.manager.convertPhotoAssetMediaTypeToQiAssetMediaType(asset: asset)
+                //TODO:2.过滤尺寸不合适的图片
+                assetArray.append(assetModel)
+            }
+            preview.assets = assetArray
+            self.navigationController?.pushViewController(preview, animated: true)
+        }
         view.addSubview(bottomView)
         
     }

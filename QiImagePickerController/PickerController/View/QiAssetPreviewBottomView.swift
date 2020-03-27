@@ -13,7 +13,9 @@ class QiAssetPreviewBottomView: UIView {
     private var editButton : UIButton!
     private var originButton : UIButton!
     private var sendButton : UIButton!
-    
+    var editButtonHandler : (()->())?
+    var originButtonHandler : (()->())?
+    var sendButtonHandler : (()->())?
     var color_back : UIColor = UIColor.qi_colorWithHexString("#434445").withAlphaComponent(0.8)
     var color_disable : UIColor = UIColor.qi_colorWithHexString("#7B7C7D")
     var color_normal : UIColor = UIColor.white
@@ -72,14 +74,14 @@ class QiAssetPreviewBottomView: UIView {
     }
     
     @objc func sendButtonHandler(_ sender : UIButton) {
-        
+        sendButtonHandler?()
     }
 
     @objc func setOriginImageHandler(_ sender : UIButton) {
-        sender.isSelected = !sender.isSelected
+        originButtonHandler?()
     }
     @objc func editButtonButtonHandler(_ sender : UIButton) {
-        sendButton.isEnabled = !sendButton.isEnabled
+        editButtonHandler?()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

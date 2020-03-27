@@ -278,6 +278,8 @@ class QiImagePikerManager: NSObject {
 class QiImagePickerOperation {
     
     static let `default` = QiImagePickerOperation()
+    //是否选择原图
+    var selectOriginImage = false
     //通知名称
     static let PickerAssetsOrderNumberHasChanged = "com.qishare.QiImagePickerOperation"
     //选中的相册资源ID
@@ -324,4 +326,8 @@ class QiImagePickerOperation {
     }
     
 }
-
+//QiImagePiker的配置项
+class QiImagePikerOptions {
+    
+    
+}
