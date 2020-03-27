@@ -83,8 +83,9 @@ class QiPhotoCell: UICollectionViewCell {
             if num != -1 {
                 coverType = .selected(num)
             } else {
-                coverType = QiImagePickerOperation.default.shouldBePick ? .default : .prohibit("")
+                coverType = QiImagePickerOperation.default.shouldBePick ? .default : .prohibit("你最多只能选择\(QiImagePickerOperation.default.maxCount)张照片")
             }
+            
         }
     }
     
@@ -236,6 +237,10 @@ class QiCoverView: UIView {
     
    
     @objc func buttonHandler( _ sender : UIButton) {
+        if QiImagePickerOperation.default.selectedAssetIds.count >= QiImagePickerOperation.default.maxCount  {
+            coverButtonHandler?(true)
+            return
+        }
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             startAnimation()

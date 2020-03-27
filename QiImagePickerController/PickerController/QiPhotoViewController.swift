@@ -200,7 +200,7 @@ extension QiPhotoViewController : UICollectionViewDataSource,UICollectionViewDel
                     wCell.coverType = .selected(QiImagePickerOperation.default.pickerOrderNum(asset: asset))
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: QiImagePickerOperation.PickerAssetsOrderNumberHasChanged), object: nil)
                 } else {
-                    print("选择资源异常")
+                    print("你最多只能选择\(QiImagePickerOperation.default.maxCount)张照片")
                 }
             } else {
                 if QiImagePickerOperation.default.tryCancelAssetPick(asset: asset) {

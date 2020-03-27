@@ -8,6 +8,18 @@
 
 import UIKit
 
+var KRootViewController : UIViewController? {
+    if #available (iOS 13,*) {
+        if let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) {
+            return window.rootViewController
+        } else {
+            return nil
+        }
+    } else {
+         return UIApplication.shared.keyWindow?.rootViewController
+    }
+}
+
 var iPhoneXSeriesBottomInset : CGFloat {
     //directionalLayoutMargins
     if #available (iOS 13,*) {
