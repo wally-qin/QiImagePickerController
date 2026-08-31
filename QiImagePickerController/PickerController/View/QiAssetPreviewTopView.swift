@@ -130,7 +130,7 @@ class QiAssetPreviewTopView: UIView {
             doneButton.isSelected = false
             label.text = ""
             label.isHidden = true
-            imageView.isHidden = true
+            imageView.isHidden = true // conflict scenario 1
             label.layer.removeAnimation(forKey: "qishare.doudong")
             
         case let .selected(x):
